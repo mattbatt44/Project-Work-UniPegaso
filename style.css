@@ -263,17 +263,16 @@ body {
   justify-content: center; 
 }
 
-/* Modella le singole schede con un design pulito, ombreggiatura elegante e posizione relativa */
+/* Pulisce lo stile della scheda eliminando il vecchio bordo tratteggiato ereditato */
 .scheda-cta {
   background: var(--bianco); 
   padding: 40px 25px 30px 25px; 
   border-radius: 12px; 
-  border: 1px solid #e9ecef;
+  border: 1px solid #e9ecef; /* Sostituito il bordo verde tratteggiato con uno pulito e grigio */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   text-align: center; 
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 15px;
 }
 
 /* Badge dell'anno posizionato nell'angolo in alto a destra della scheda */
@@ -293,6 +292,14 @@ body {
 .scheda-cta:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Griglia fluida per i Bilanci (Dispone le schede in modo simmetrico) */
+.griglia-bilanci {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 100%;
 }
 
 /* Testo descrittivo interno più compatto */
