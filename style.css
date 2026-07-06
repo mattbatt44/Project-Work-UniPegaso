@@ -1,0 +1,458 @@
+/* Definisce i colori principali, i neutri e la tipografia utilizzata nel foglio */
+:root {
+  --col-prim: #1b4332;   
+  --col-sec: #40916c;    
+  --col-cont: #d8f3dc;   
+  --col-scuro: #2d3142;  
+  --col-chiaro: #f8f9fa; 
+  --bianco: #ffffff;
+  --font-prim: 'Inter', sans-serif;
+}
+
+/* Applica il reset globale dei margini e imposta il calcolo corretto delle dimensioni dei blocchi */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-prim);
+}
+
+/* Attiva lo scorrimento fluido della pagina durante il clic sulle ancore interne */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Configura lo sfondo principale, il colore del testo e l'interlinea del corpo pagina */
+body {
+  background-color: var(--bianco);
+  color: var(--col-scuro);
+  line-height: 1.6;
+  padding-top: 90px; /* Crea lo spazio necessario affinché la hero non sia coperta dalla navbar fissa */
+}
+
+/* Centra i contenuti sullo schermo ponendo un limite di larghezza massima responsive */
+.cont-base {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Fissa la barra di navigazione in cima allo schermo durante lo scorrimento e sovrappone tutto */
+.barra-nav {
+  background-color: var(--bianco);
+  border-bottom: 1px solid #e9ecef;
+  position: fixed; /* Cambiato da sticky a fixed per un ancoraggio assoluto allo schermo */
+  top: 0;
+  left: 0; /* Assicura che parta dal margine sinistro */
+  width: 100%; /* Forziamo la larghezza totale dello schermo */
+  padding: 15px 0;
+  z-index: 9999; /* Valore alto per garantire la sovrapposizione su qualsiasi altro elemento */
+}
+
+/* Allinea in orizzontale il brand aziendale e i link del menu di navigazione */
+.barra-nav .cont-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Rimuove la sottolineatura standard dal collegamento ipertestuale del logo */
+.logo-link {
+  text-decoration: none;
+}
+
+/* Dispone l'icona grafica e il testo testuale del logo sul medesimo asse orizzontale */
+.logo-testo {
+  display: flex;
+  align-items: center;
+  color: var(--col-prim);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Dimenziona il file grafico del logo aziendale integrato nella testata */
+#img-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+/* Trasforma la lista di navigazione in un blocco orizzontale flessibile e spaziato */
+.colleg-nav {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+/* Gestisce l'aspetto visivo e la transizione di colore dei link presenti nel menu */
+.colleg-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Modifica il colore dei link al passaggio del mouse e per la voce di sezione attiva */
+.colleg-nav a:hover, 
+.colleg-nav a.attivo {
+  color: var(--col-sec);
+  font-weight: bold;
+}
+
+/* Imposta lo sfondo sfumato e le spaziature interne della sezione di presentazione principale */
+.sez-hero {
+  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+  color: var(--bianco);
+  padding: 100px 0 140px 0;
+  text-align: center;
+}
+
+/* Formatta l'etichetta di categoria superiore della hero con un aspetto a contrasto */
+.badge-hero {
+  background-color: var(--col-sec);
+  color: var(--bianco);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Caratterizza il titolo primario h1 della pagina web per massima rilevanza visiva */
+.titolo-hero {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Restringe l'area del paragrafo descrittivo della hero migliorandone la leggibilità */
+.sottotitolo-hero {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* Staticizza i blocchi verso il basso evitando che si sovrappongono al sottotitolo */
+.stat-hero {
+  margin-top: 30px;
+}
+
+/* Dispone le quattro schede statistiche su una griglia multi-colonna automatica e responsive */
+.griglia-stat {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Modella la singola scheda contatore applicando sfondo chiaro, ombreggiatura e bordi smussati */
+.elem-stat {
+  background: var(--bianco);
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* Configura la dimensione prominente e lo spessore del valore numerico macro della statistica */
+.num-stat {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--col-prim);
+  display: inline-block;
+}
+
+/* Uniforma visivamente i caratteri speciali posti accanto alle cifre numeriche principali */
+.suff-stat {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--col-prim);
+}
+
+/* Formatta la dicitura descrittiva inferiore posizionata sotto i dati numerici */
+.etic-stat {
+  display: block;
+  margin-top: 5px;
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Omogeneizza i margini interni verticali di riempimento per tutte le macro-sezioni di pagina */
+.sez-bilanci, 
+.sez-iniziative, 
+.sez-cronologia {
+  padding: 80px 0;
+}
+
+/* Gestisce l'aspetto visivo e la transizione di colore dei link presenti nel menu */
+.colleg-nav a,
+.colleg-nav a:visited {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  color: var(--col-scuro); /* Forza il colore scuro originale */
+}
+
+/* Centra i testi e definisce lo stacco inferiore dei blocchi di intestazione delle sezioni */
+.int-sezione {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 50px auto;
+}
+
+/* Evidenzia il piccolo testo introduttivo posto sopra i titoli di sezione secondari */
+.badge-sez {
+  color: var(--col-sec);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Stabilisce la dimensione, la famiglia tipografica e il colore per tutti i titoli h2 */
+.titolo-sez {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.2rem;
+  color: var(--col-prim);
+  margin-bottom: 15px;
+}
+
+/* Gestisce lo stile tipografico dei paragrafi esplicativi collocati nelle testate di sezione */
+.sottotitolo-sez {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  margin-bottom: 15px;
+}
+
+/* Struttura le proprietà di base comuni per i pulsanti cliccabili del sito (allineamento e padding) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+/* Applica la combinazione cromatica primaria (verde) per i pulsanti di azione principale */
+.btn-prim {
+  background-color: var(--col-sec);
+  color: var(--bianco);
+}
+
+/* Gestisce il cambio di colore di sfondo e il micro-sollevamento del pulsante al passaggio del mouse */
+.btn-prim:hover {
+  background-color: #2d6a4f;
+  transform: translateY(-2px);
+}
+
+/* Centra in orizzontale la scheda di download all'interno dello spazio disponibile */
+.box-cta {
+  display: flex; 
+  justify-content: center; 
+}
+
+/* Modella le singole schede con un design pulito, ombreggiatura elegante e posizione relativa */
+.scheda-cta {
+  background: var(--bianco); 
+  padding: 40px 25px 30px 25px; 
+  border-radius: 12px; 
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  text-align: center; 
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 15px;
+}
+
+/* Badge dell'anno posizionato nell'angolo in alto a destra della scheda */
+.icona-anno {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--col-cont);
+  color: var(--col-prim);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Effetto Hover sofisticato: la scheda si solleva e l'ombra si accentua */
+.scheda-cta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Testo descrittivo interno più compatto */
+.scheda-cta p {
+  font-size: 0.85rem; 
+  color: #6c757d; 
+  margin: 15px 0 20px 0;
+}
+
+/* Ottimizzazione pulsante interno per farlo estendere uniformemente */
+.scheda-cta .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+}
+
+/* Allineamento corretto e dimensioni dell'icona del file */
+.testo-doc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--col-prim);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.img-doc {
+  width: 50px;
+  height: 50px;
+}
+
+/* Determina la dimensione fissa per l'icona del file PDF inserita nella scheda d'archivio */
+#img-doc {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+/* Organizza i blocchi informativi dei progetti ESG all'interno di una griglia flessibile a colonne */
+.griglia-iniz {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* Modella i contenitori delle iniziative con un bordo sottile e prepara l'effetto transizione dinamico */
+.scheda-iniz {
+  background: var(--bianco);
+  border: 1px solid #e9ecef;
+  padding: 30px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Applica una leggera traslazione verticale e un'ombra quando si sorvola la scheda dell'iniziativa */
+.scheda-iniz:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px;
+}
+
+/* Specifica la distanza inferiore e la colorazione per i titoli h3 interni alle schede */
+.scheda-iniz h3 {
+  margin-bottom: 12px;
+  color: var(--col-prim);
+}
+
+/* Distanzia l'intero blocco degli indicatori di avanzamento dal testo soprastante */
+.progresso-iniz {
+  margin-top: 20px;
+}
+
+/* Disegna lo sfondo grigio neutro svuotato che funge da binario per la barra di progresso */
+.barra-prog {
+  background-color: #e9ecef;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+/* Rappresenta l'avanzamento effettivo colorato in verde della percentuale raggiunta */
+.avanz-prog {
+  background-color: var(--col-sec);
+  height: 100%;
+}
+
+/* Modella le scritte descrittive di dettaglio posizionate sotto le barre di progresso */
+.etic-prog {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Genera la linea verticale di congiunzione sul lato sinistro per lo stile della timeline */
+.linea-tempo {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 30px;
+  border-left: 3px solid var(--col-cont);
+}
+
+/* Definisce lo spazio verticale occupato da ogni singolo evento storico della timeline */
+.fase-tempo {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+/* Disegna mediante pseudo-elemento i cerchietti nodali vuoti posizionati sopra la linea verticale */
+.fase-tempo::before {
+  content: '';
+  position: absolute;
+  left: -38px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+  border: 3px solid var(--bianco);
+}
+
+/* Colora il cerchietto e applica un alone luminoso di evidenziazione per il nodo temporale attivo */
+.fase-tempo.attiva::before {
+  background-color: var(--col-sec);
+  box-shadow: 0 0 0 5px var(--col-cont);
+}
+
+/* Determina le caratteristiche tipografiche del blocco anno inserito nella cronologia */
+.anno-tempo {
+  font-weight: 700;
+  color: var(--col-sec);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* Stabilisce la cromatica e lo stacco inferiore per i titoli h4 interni alla timeline */
+.corpo-tempo h4 {
+  color: var(--col-prim);
+  margin-bottom: 5px;
+}
+
+/* Imposta lo sfondo istituzionale scuro, il testo chiaro e le distanze per il piè di pagina */
+.piet-pna {
+  background: #112a1e; 
+  color: #a3b19b; 
+  padding: 30px 0; 
+  text-align: center; 
+  font-size: 0.9rem;
+}
+
+/* Riduce e opacizza il testo contenente i dati accademici dello studente nel footer */
+.nota-piet {
+  font-size: 0.75rem; 
+  margin-top: 5px; 
+  opacity: 0.7;
+}
+
+/* Intercetta gli schermi inferiori a 768px riducendo il titolo principale e nascondendo il menu esteso */
+@media (max-width: 768px) {
+  .titolo-hero { font-size: 2.2rem; }
+  .colleg-nav { display: none; }
+}
